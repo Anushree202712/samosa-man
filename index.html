@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samosa Man</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<div id="splash-screen">
+    <h1>Welcome to The Samosa Man 🥟</h1>
+    <p>Loading your crispy experience...</p>
+</div>
+
+
+<body>
+    <header>
+        <h1>The Samosa Man</h1>
+        <p>Hot, crispy, and made with love!</p>
+    </header>
+
+    <section class="menu">
+        <h2>Menu</h2>
+
+        <div class="menu-item">
+            <label>Samosa (₹10)</label>
+            <select id="samosa-option">
+                <option value="" disabled selected>Choose stuffing for Samosa</option>
+                <option value="Classic Onion">Classic Onion</option>
+            </select>
+            <input type="number" id="samosa-qty" min="1" value="1" />
+            <button onclick="addCustomItem('Samosa', 10, 'samosa-option', 'samosa-qty')">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <label>Special Samosa (₹20)</label>
+            <select id="special-samosa-option">
+                <option value="" disabled selected>Choose filling for Special Samosa</option>
+                <option value="Mixed Veggies with Peas & Potato">Mixed Veggies with Peas & Potato</option>
+                <option value="Mushroom and capsicum">Mushroom and capsicum</option>
+                <option value="Soya chukka">Soya chukka</option>
+            </select>
+            <input type="number" id="samosa-qty" min="1" value="1" />
+            <button onclick="addCustomItem('Samosa', 20, 'samosa-option', 'samosa-qty')">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <label>Bajji (₹10)</label>
+            <select id="bajji-option">
+                <option value="" disabled selected>Select your Bajji type</option>
+                <option value="Potato">Potato</option>
+                <option value="Onion">Onion</option>
+                <option value="Plantain">Plantain</option>
+                <option value="Bread">Bread</option>
+                <option value="Chilli">Chilli</option>
+                <option value="Soya chunks">Soya chunks</option>
+                <option value="Capsicum">Capsicum</option>
+            </select>
+            <input type="number" id="bajji-qty" min="1" value="1" />
+            <button onclick="addCustomItem('Bajji', 10, 'bajji-option', 'bajji-qty')">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <label>Bonda (₹15)</label>
+            <select id="bonda-option">
+                <option value="" disabled selected>Select your Bonda type</option>
+                <option value="Keera">Keera</option>
+                <option value="Potato">Potato</option>
+                <option value="Egg">Egg</option>
+            </select>
+            <input type="number" id="bonda-qty" min="1" value="1" />
+            <button onclick="addCustomItem('Bonda', 10, 'bonda-option', 'bonda-qty')">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <label>Vada (₹15)</label>
+            <select id="vada-option">
+                <option value="" disabled selected>Select your Vada type</option>
+                <option value="Masala / Paruppu Vada">Masala / Paruppu Vada</option>
+                <option value="Medu Vada">Medu Vada</option>
+                <option value="Soya chunks">Soya chunks</option>
+                <option value="Cabbage">Soya chunks</option>
+            </select>
+            <input type="number" id="vada-qty" min="1" value="1" />
+            <button onclick="addCustomItem('Vada', 10, 'vada-option', 'vada-qty')">Add</button>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="total">Total: ₹0</p>
+        <button onclick="showCustomerForm()">Checkout</button>
+        <button onclick="clearCart()">Clear Cart</button>
+
+    </section>
+
+    <section class="customer-form">
+        <h2>Customer Details</h2>
+        <form id="order-form" onsubmit="handleSubmit(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required />
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required />
+
+            <label for="pickup">Pickup Time:</label>
+            <input type="time" id="pickup" required />
+
+            <label>
+                <input type="checkbox" id="send-whatsapp" checked />
+                Send order to WhatsApp
+            </label>
+
+            <label>
+                <input type="checkbox" id="send-customer-whatsapp" checked />
+                Send confirmation to my WhatsApp
+            </label>
+
+
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <a href="https://wa.me/919384930851?text=I'd%20like%20to%20order%20samosas!" target="_blank">
+        <button>Order via WhatsApp</button>
+    </a>
+
+
+    <section id="confirmation" style="display: none;">
+        <h2>✅ Order Confirmed!</h2>
+        <p>Thank you, <span id="customer-name"></span>! Your order will be ready by <span id="pickup-time"></span>.</p>
+    </section>
+
+    <button onclick="window.print()">🖨️ Print Receipt</button>
+
+
+    <section id="dashboard">
+        <h2>📊 Order Summary</h2>
+        <p>Total Orders: <span id="order-count">0</span></p>
+        <p>Total Revenue: ₹<span id="order-revenue">0</span></p>
+    </section>
+
+    <form id="order-form" onsubmit="handleSubmit(event)">
+
+        <script src="script.js"></script>
+</body>
+
+</html>
