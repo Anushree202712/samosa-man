@@ -97,7 +97,7 @@ function handleSubmit(event) {
     document.querySelector(".cart").style.display = "none";
     document.getElementById("confirmation").style.display = "block";
 
-    // ✅ Send WhatsApp message if checkbox is checked
+    //Send WhatsApp message if checkbox is checked
     if (document.getElementById("send-whatsapp").checked) {
         const message = `New Order from ${name}\nPickup Time: ${pickup}\nItems:\n` +
             cart.map(item => `- ${item.item} ₹${item.price}`).join('\n') +
@@ -107,7 +107,7 @@ function handleSubmit(event) {
         window.open(whatsappURL, '_blank');
     }
 
-    // ✅ Send WhatsApp message to customer
+    //Send WhatsApp message to customer
     if (document.getElementById("send-customer-whatsapp")?.checked) {
         const customerMessage = `Hi ${name}, your order has been placed successfully!\nPickup Time: ${pickup}\nItems:\n` +
             cart.map(item => `- ${item.item} ₹${item.price}`).join('\n') +
